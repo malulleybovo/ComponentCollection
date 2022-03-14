@@ -1,0 +1,11 @@
+{
+    "statusCode": 200,
+    "response": [
+        {
+            "someString": "String",
+            "someDouble": 1.5,
+            "someBool": true,
+            "someDate": 0
+        }
+    ]
+}

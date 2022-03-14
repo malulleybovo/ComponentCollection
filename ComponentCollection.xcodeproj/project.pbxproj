@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E170CD327DEE70800C0CFA8 /* SampleServiceRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E170CD227DEE70800C0CFA8 /* SampleServiceRequestTests.swift */; };
+		8E28D7F827DD92B30019C5F7 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28D7F727DD92B30019C5F7 /* ApiRequest.swift */; };
+		8E28D7FC27DDECBD0019C5F7 /* SampleServiceResponse.mockup.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E28D7FA27DDEBA50019C5F7 /* SampleServiceResponse.mockup.json */; };
+		8E28D7FE27DDEDC90019C5F7 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28D7FD27DDEDC90019C5F7 /* NetworkLayer.swift */; };
+		8E28D80127DDEE6C0019C5F7 /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28D80027DDEE6C0019C5F7 /* SampleService.swift */; };
 		8EE29D4727A759C800DA93E9 /* DiscordMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */; };
 		8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */; };
 		8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */; };
@@ -45,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E170CD227DEE70800C0CFA8 /* SampleServiceRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleServiceRequestTests.swift; sourceTree = "<group>"; };
+		8E28D7F727DD92B30019C5F7 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		8E28D7FA27DDEBA50019C5F7 /* SampleServiceResponse.mockup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleServiceResponse.mockup.json; sourceTree = "<group>"; };
+		8E28D7FD27DDEDC90019C5F7 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		8E28D80027DDEE6C0019C5F7 /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
 		8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordMenuUITests.swift; sourceTree = "<group>"; };
 		8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingItemCell.swift; sourceTree = "<group>"; };
@@ -92,6 +102,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E170CD127DEE5AA00C0CFA8 /* SampleService */ = {
+			isa = PBXGroup;
+			children = (
+				8E28D80027DDEE6C0019C5F7 /* SampleService.swift */,
+				8E28D7FA27DDEBA50019C5F7 /* SampleServiceResponse.mockup.json */,
+			);
+			path = SampleService;
+			sourceTree = "<group>";
+		};
+		8E28D7F927DDEB740019C5F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8EECFB9527A645590085B9EC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E28D7FF27DDEE5A0019C5F7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E170CD127DEE5AA00C0CFA8 /* SampleService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		8EECFB8027A645580085B9EC = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +153,7 @@
 				8EECFB8C27A645580085B9EC /* AppDelegate.swift */,
 				8EECFBC127A646120085B9EC /* Foundation */,
 				8EECFBBC27A645940085B9EC /* View */,
-				8EECFB9527A645590085B9EC /* Assets.xcassets */,
+				8E28D7F927DDEB740019C5F7 /* Resources */,
 				8EECFB9727A645590085B9EC /* LaunchScreen.storyboard */,
 				8EECFB9A27A645590085B9EC /* Info.plist */,
 			);
@@ -128,6 +163,7 @@
 		8EECFBA227A6455A0085B9EC /* ComponentCollectionTests */ = {
 			isa = PBXGroup;
 			children = (
+				8E170CD227DEE70800C0CFA8 /* SampleServiceRequestTests.swift */,
 				8EECFBA327A6455A0085B9EC /* ComponentCollectionTests.swift */,
 			);
 			path = ComponentCollectionTests;
@@ -149,7 +185,6 @@
 				8EECFBBD27A645A30085B9EC /* Components */,
 				8EECFBBE27A645C50085B9EC /* Landing */,
 				8EECFBC427A64A560085B9EC /* DiscordMenu */,
-				8EECFBC727A673030085B9EC /* New Group */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +212,8 @@
 			children = (
 				8EECFBC227A646320085B9EC /* BaseViewController.swift */,
 				8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */,
+				8EECFBC727A673030085B9EC /* Network */,
+				8E28D7FF27DDEE5A0019C5F7 /* Services */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -191,11 +228,13 @@
 			path = DiscordMenu;
 			sourceTree = "<group>";
 		};
-		8EECFBC727A673030085B9EC /* New Group */ = {
+		8EECFBC727A673030085B9EC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8E28D7F727DD92B30019C5F7 /* ApiRequest.swift */,
+				8E28D7FD27DDEDC90019C5F7 /* NetworkLayer.swift */,
 			);
-			path = "New Group";
+			path = Network;
 			sourceTree = "<group>";
 		};
 		8EECFBC827A673230085B9EC /* Menu */ = {
@@ -310,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E28D7FC27DDECBD0019C5F7 /* SampleServiceResponse.mockup.json in Resources */,
 				8EECFB9927A645590085B9EC /* LaunchScreen.storyboard in Resources */,
 				8EECFB9627A645590085B9EC /* Assets.xcassets in Resources */,
 			);
@@ -336,6 +376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E28D80127DDEE6C0019C5F7 /* SampleService.swift in Sources */,
+				8E28D7FE27DDEDC90019C5F7 /* NetworkLayer.swift in Sources */,
 				8EECFBC027A645E30085B9EC /* LandingView.swift in Sources */,
 				8EECFBCC27A675F00085B9EC /* DiscordChatView.swift in Sources */,
 				8EE29D5327A76ABC00DA93E9 /* LandingItemCellModel.swift in Sources */,
@@ -345,6 +387,7 @@
 				8EECFBC327A646320085B9EC /* BaseViewController.swift in Sources */,
 				8EECFBCE27A68CB20085B9EC /* DiscordRightMenuView.swift in Sources */,
 				8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */,
+				8E28D7F827DD92B30019C5F7 /* ApiRequest.swift in Sources */,
 				8EECFBC627A64A730085B9EC /* DiscordMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EECFBA427A6455A0085B9EC /* ComponentCollectionTests.swift in Sources */,
+				8E170CD327DEE70800C0CFA8 /* SampleServiceRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
