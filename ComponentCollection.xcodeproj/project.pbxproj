@@ -12,6 +12,9 @@
 		8E28D7FC27DDECBD0019C5F7 /* SampleServiceResponse.mockup.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E28D7FA27DDEBA50019C5F7 /* SampleServiceResponse.mockup.json */; };
 		8E28D7FE27DDEDC90019C5F7 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28D7FD27DDEDC90019C5F7 /* NetworkLayer.swift */; };
 		8E28D80127DDEE6C0019C5F7 /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28D80027DDEE6C0019C5F7 /* SampleService.swift */; };
+		8E2CAD2227F15AF50028C9C0 /* UIDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */; };
+		8E2CAD2627F15E3D0028C9C0 /* UILabelDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2527F15E3D0028C9C0 /* UILabelDescriptor.swift */; };
+		8E2CAD2927F1609C0028C9C0 /* SampleDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2827F1609C0028C9C0 /* SampleDynamicTableViewController.swift */; };
 		8EE29D4727A759C800DA93E9 /* DiscordMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */; };
 		8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */; };
 		8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */; };
@@ -55,6 +58,9 @@
 		8E28D7FA27DDEBA50019C5F7 /* SampleServiceResponse.mockup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleServiceResponse.mockup.json; sourceTree = "<group>"; };
 		8E28D7FD27DDEDC90019C5F7 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		8E28D80027DDEE6C0019C5F7 /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
+		8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDynamicTableViewController.swift; sourceTree = "<group>"; };
+		8E2CAD2527F15E3D0028C9C0 /* UILabelDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelDescriptor.swift; sourceTree = "<group>"; };
+		8E2CAD2827F1609C0028C9C0 /* SampleDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDynamicTableViewController.swift; sourceTree = "<group>"; };
 		8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordMenuUITests.swift; sourceTree = "<group>"; };
 		8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingItemCell.swift; sourceTree = "<group>"; };
@@ -127,6 +133,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8E2CAD2427F15E2E0028C9C0 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CAD2527F15E3D0028C9C0 /* UILabelDescriptor.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		8E2CAD2727F160600028C9C0 /* DynamicTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CAD2827F1609C0028C9C0 /* SampleDynamicTableViewController.swift */,
+			);
+			path = DynamicTableView;
+			sourceTree = "<group>";
+		};
 		8EECFB8027A645580085B9EC = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +207,7 @@
 				8EECFBBD27A645A30085B9EC /* Components */,
 				8EECFBBE27A645C50085B9EC /* Landing */,
 				8EECFBC427A64A560085B9EC /* DiscordMenu */,
+				8E2CAD2727F160600028C9C0 /* DynamicTableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				8EECFBC827A673230085B9EC /* Menu */,
+				8E2CAD2427F15E2E0028C9C0 /* UILabel */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -212,6 +236,7 @@
 			children = (
 				8EECFBC227A646320085B9EC /* BaseViewController.swift */,
 				8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */,
+				8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */,
 				8EECFBC727A673030085B9EC /* Network */,
 				8E28D7FF27DDEE5A0019C5F7 /* Services */,
 			);
@@ -376,9 +401,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2CAD2627F15E3D0028C9C0 /* UILabelDescriptor.swift in Sources */,
 				8E28D80127DDEE6C0019C5F7 /* SampleService.swift in Sources */,
 				8E28D7FE27DDEDC90019C5F7 /* NetworkLayer.swift in Sources */,
 				8EECFBC027A645E30085B9EC /* LandingView.swift in Sources */,
+				8E2CAD2227F15AF50028C9C0 /* UIDynamicTableViewController.swift in Sources */,
 				8EECFBCC27A675F00085B9EC /* DiscordChatView.swift in Sources */,
 				8EE29D5327A76ABC00DA93E9 /* LandingItemCellModel.swift in Sources */,
 				8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */,
@@ -389,6 +416,7 @@
 				8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */,
 				8E28D7F827DD92B30019C5F7 /* ApiRequest.swift in Sources */,
 				8EECFBC627A64A730085B9EC /* DiscordMenuController.swift in Sources */,
+				8E2CAD2927F1609C0028C9C0 /* SampleDynamicTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

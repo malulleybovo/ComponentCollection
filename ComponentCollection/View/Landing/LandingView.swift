@@ -30,6 +30,9 @@ class LandingView: BaseTableViewController<LandingItemCellModel, LandingItemCell
         set(dataList: [
             LandingItemCellModel(text: "Discord Menu Controller", onTap: {
                 UIApplication.shared.appDelegate?.setWindowToDiscordMenu()
+            }),
+            LandingItemCellModel(text: "Dynamic UITableViewController", onTap: {
+                UIApplication.shared.appDelegate?.setWindowToSampleDynamicTableViewController()
             })
         ])
     }

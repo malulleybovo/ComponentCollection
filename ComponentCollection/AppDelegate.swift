@@ -37,6 +37,10 @@ extension AppDelegate {
         window?.rootViewController = menu
     }
     
+    func setWindowToSampleDynamicTableViewController() {
+        window?.rootViewController = SampleDynamicTableViewController()
+    }
+    
 }
 
 extension UIApplication {
