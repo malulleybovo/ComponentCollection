@@ -41,6 +41,10 @@ extension AppDelegate {
         window?.rootViewController = SampleDynamicTableViewController()
     }
     
+    func setWindowToSampleDynamicCollectionViewController() {
+        window?.rootViewController = SampleDynamicCollectionViewController()
+    }
+    
 }
 
 extension UIApplication {

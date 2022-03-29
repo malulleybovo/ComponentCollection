@@ -15,6 +15,8 @@
 		8E2CAD2227F15AF50028C9C0 /* UIDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */; };
 		8E2CAD2627F15E3D0028C9C0 /* UILabelDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2527F15E3D0028C9C0 /* UILabelDescriptor.swift */; };
 		8E2CAD2927F1609C0028C9C0 /* SampleDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CAD2827F1609C0028C9C0 /* SampleDynamicTableViewController.swift */; };
+		8E61FE3B27F2A3F800310FDA /* UIDynamicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E61FE3A27F2A3F800310FDA /* UIDynamicCollectionViewController.swift */; };
+		8E61FE3E27F2A44600310FDA /* SampleDynamicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E61FE3D27F2A44600310FDA /* SampleDynamicCollectionViewController.swift */; };
 		8EE29D4727A759C800DA93E9 /* DiscordMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */; };
 		8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */; };
 		8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */; };
@@ -61,6 +63,8 @@
 		8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDynamicTableViewController.swift; sourceTree = "<group>"; };
 		8E2CAD2527F15E3D0028C9C0 /* UILabelDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelDescriptor.swift; sourceTree = "<group>"; };
 		8E2CAD2827F1609C0028C9C0 /* SampleDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDynamicTableViewController.swift; sourceTree = "<group>"; };
+		8E61FE3A27F2A3F800310FDA /* UIDynamicCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDynamicCollectionViewController.swift; sourceTree = "<group>"; };
+		8E61FE3D27F2A44600310FDA /* SampleDynamicCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDynamicCollectionViewController.swift; sourceTree = "<group>"; };
 		8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordMenuUITests.swift; sourceTree = "<group>"; };
 		8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingItemCell.swift; sourceTree = "<group>"; };
@@ -149,6 +153,14 @@
 			path = DynamicTableView;
 			sourceTree = "<group>";
 		};
+		8E61FE3C27F2A42700310FDA /* DynamicCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8E61FE3D27F2A44600310FDA /* SampleDynamicCollectionViewController.swift */,
+			);
+			path = DynamicCollectionView;
+			sourceTree = "<group>";
+		};
 		8EECFB8027A645580085B9EC = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 				8EECFBBE27A645C50085B9EC /* Landing */,
 				8EECFBC427A64A560085B9EC /* DiscordMenu */,
 				8E2CAD2727F160600028C9C0 /* DynamicTableView */,
+				8E61FE3C27F2A42700310FDA /* DynamicCollectionView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 				8EECFBC227A646320085B9EC /* BaseViewController.swift */,
 				8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */,
 				8E2CAD2127F15AF50028C9C0 /* UIDynamicTableViewController.swift */,
+				8E61FE3A27F2A3F800310FDA /* UIDynamicCollectionViewController.swift */,
 				8EECFBC727A673030085B9EC /* Network */,
 				8E28D7FF27DDEE5A0019C5F7 /* Services */,
 			);
@@ -411,8 +425,10 @@
 				8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */,
 				8EECFB8D27A645580085B9EC /* AppDelegate.swift in Sources */,
 				8EECFBCA27A6733B0085B9EC /* DiscordLeftMenuView.swift in Sources */,
+				8E61FE3E27F2A44600310FDA /* SampleDynamicCollectionViewController.swift in Sources */,
 				8EECFBC327A646320085B9EC /* BaseViewController.swift in Sources */,
 				8EECFBCE27A68CB20085B9EC /* DiscordRightMenuView.swift in Sources */,
+				8E61FE3B27F2A3F800310FDA /* UIDynamicCollectionViewController.swift in Sources */,
 				8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */,
 				8E28D7F827DD92B30019C5F7 /* ApiRequest.swift in Sources */,
 				8EECFBC627A64A730085B9EC /* DiscordMenuController.swift in Sources */,

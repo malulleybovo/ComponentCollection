@@ -14,6 +14,7 @@ open class UIDynamicTableViewController: UIViewController, UITableViewDelegate, 
         case manual
     }
     
+    private var registeredSupplementaryViewIdentifiers: Set<String> = []
     private var registeredCellIdentifiers: Set<String> = []
     
     public var reloadScheme: ReloadScheme = .automatic
@@ -21,14 +22,14 @@ open class UIDynamicTableViewController: UIViewController, UITableViewDelegate, 
         didSet {
             for section in sections {
                 if let type = section.headerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
-                   !registeredCellIdentifiers.contains("\(type)") {
+                   !registeredSupplementaryViewIdentifiers.contains("\(type)") {
                     tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
-                    registeredCellIdentifiers.insert("\(type)")
+                    registeredSupplementaryViewIdentifiers.insert("\(type)")
                 }
                 if let type = section.footerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
-                   !registeredCellIdentifiers.contains("\(type)") {
+                   !registeredSupplementaryViewIdentifiers.contains("\(type)") {
                     tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
-                    registeredCellIdentifiers.insert("\(type)")
+                    registeredSupplementaryViewIdentifiers.insert("\(type)")
                 }
                 for item in section.items {
                     let type = item.dynamicTableViewCellType
@@ -424,6 +425,7 @@ open class UIDynamicTableViewController: UIViewController, UITableViewDelegate, 
     
     public func tableView(_ tableView: UITableView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
         guard tableView === self.tableView else { return false }
+        guard tableView.allowsMultipleSelection else { return false }
         guard indexPath.section >= 0, indexPath.section < sections.count else { return false }
         guard indexPath.row >= 0, indexPath.row < sections[indexPath.section].items.count else { return false }
         let descriptor = sections[indexPath.section].items[indexPath.row]
@@ -464,6 +466,7 @@ public protocol Descriptor {
     var viewType: UIView.Type { get }
     var dynamicTableViewCellType: UITableViewCell.Type { get }
     var dynamicTableViewHeaderFooterViewType: UITableViewHeaderFooterView.Type { get }
+    var dynamicCollectionViewCellType: UICollectionViewCell.Type { get }
     
     var tapListener: ((_ selected: Bool) -> Void)? { get set }
     var editable: Bool { get set }
@@ -471,6 +474,7 @@ public protocol Descriptor {
     func layout(view: UIView)
     func layout(tableViewCell: UITableViewCell)
     func layout(tableViewHeaderFooterView: UITableViewHeaderFooterView)
+    func layout(collectionViewCell: UICollectionViewCell)
     
 }
 
@@ -481,6 +485,7 @@ open class UIViewDescriptor<V: UIView>: Descriptor, Identifiable {
     public var viewType: UIView.Type { V.self }
     public var dynamicTableViewCellType: UITableViewCell.Type { UIDynamicTableViewCell<V>.self }
     public var dynamicTableViewHeaderFooterViewType: UITableViewHeaderFooterView.Type { UIDynamicTableViewHeaderFooterView<V>.self }
+    public var dynamicCollectionViewCellType: UICollectionViewCell.Type { UIDynamicCollectionViewCell<V>.self }
     
     public var tapListener: ((_ selected: Bool) -> Void)?
     @discardableResult
@@ -517,11 +522,19 @@ open class UIViewDescriptor<V: UIView>: Descriptor, Identifiable {
         return self
     }
     
+    public var backgroundColor: UIColor?
+    @discardableResult
+    public final func backgroundColor(_ backgroundColor: UIColor?) -> UIViewDescriptor<V> {
+        self.backgroundColor = backgroundColor
+        return self
+    }
+    
     /// Implementation dependent. Override to define the view layout.
     open func layout(view: V) { }
     
     public final func layout(view: UIView) {
         guard let view = view as? V else { return }
+        view.backgroundColor = backgroundColor
         layout(view: view)
     }
     
@@ -532,13 +545,22 @@ open class UIViewDescriptor<V: UIView>: Descriptor, Identifiable {
         } else if let separatorInset = separatorInset {
             tableViewCell.separatorInset = separatorInset
         }
+        tableViewCell.backgroundColor = backgroundColor
         tableViewCell.contentInset = contentInset
         layout(view: tableViewCell.view)
     }
     
     public final func layout(tableViewHeaderFooterView: UITableViewHeaderFooterView) {
         guard let tableViewHeaderFooterView = tableViewHeaderFooterView as? UIDynamicTableViewHeaderFooterView<V> else { return }
+        tableViewHeaderFooterView.backgroundColor = backgroundColor
         layout(view: tableViewHeaderFooterView.view)
+    }
+    
+    public func layout(collectionViewCell: UICollectionViewCell) {
+        guard let collectionViewCell = collectionViewCell as? UIDynamicCollectionViewCell<V> else { return }
+        collectionViewCell.contentInset = contentInset
+        collectionViewCell.backgroundColor = backgroundColor
+        layout(view: collectionViewCell.view)
     }
     
 }

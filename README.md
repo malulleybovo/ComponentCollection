@@ -5,6 +5,7 @@ Catalog App containing some of my own implementations of various iOS components
 - Generic REST API network layer with mockup response support
 
 #### UI Components
+- UIDynamicCollectionViewController: a simplified and expressive take on UICollectionViewController
 - UIDynamicTableViewController: a simplified and expressive take on UITableViewController
 - Menu inspired on Discord iOS App
 

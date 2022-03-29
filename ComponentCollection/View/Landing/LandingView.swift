@@ -33,6 +33,9 @@ class LandingView: BaseTableViewController<LandingItemCellModel, LandingItemCell
             }),
             LandingItemCellModel(text: "Dynamic UITableViewController", onTap: {
                 UIApplication.shared.appDelegate?.setWindowToSampleDynamicTableViewController()
+            }),
+            LandingItemCellModel(text: "Dynamic UICollectionViewController", onTap: {
+                UIApplication.shared.appDelegate?.setWindowToSampleDynamicCollectionViewController()
             })
         ])
     }
