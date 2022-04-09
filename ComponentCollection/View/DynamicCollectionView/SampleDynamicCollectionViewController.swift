@@ -3,6 +3,7 @@
 //  ComponentCollection
 //
 //  Created by malulleybovo on 3/28/22.
+//  Copyright © 2022 malulleybovo. All rights reserved.
 //
 
 import UIKit

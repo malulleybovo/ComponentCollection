@@ -16,7 +16,18 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UIColor.init(dynamicProvider: { trait in
+                switch trait.userInterfaceStyle {
+                case .dark:
+                    return UIColor.black
+                default:
+                    return UIColor.white
+                }
+            })
+        } else {
+            view.backgroundColor = UIColor.white
+        }
         setupUI()
     }
     

@@ -8,10 +8,10 @@
 
 import Foundation
 
-class NetworkLayer {
+open class NetworkLayer {
     
     /// Mockup implementation
-    func execute<M: Decodable>(request: ApiRequest<M>, completion: @escaping (_ statusCode: Int, _ responseModel: M?, _ message: String) -> Void) {
+    public func execute<M: Decodable>(request: ApiRequest<M>, completion: @escaping (_ statusCode: Int, _ responseModel: M?, _ message: String) -> Void) {
         guard let pathToMockupFile = Bundle.main.path(forResource: request.mockupJsonFileName + ".mockup", ofType: "json"),
               let mockupJsonData = try? String(contentsOfFile: pathToMockupFile).data(using: .utf8),
               let mockupDictionary = try? JSONSerialization.jsonObject(with: mockupJsonData, options: []) as? [String : Any] else {

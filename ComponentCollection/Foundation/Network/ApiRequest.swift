@@ -8,14 +8,14 @@
 
 import Foundation
 
-class ApiRequest<M: Decodable> {
-    var path: String { "" }
-    var method: HttpMethod { .get }
-    var parameters: ApiRequestParameters? { nil }
-    var headers: [String : String]? { nil }
-    var defaultMessage: String { "Oops, it seems something went wrong... please try again later." }
-    final let mockupJsonFileName: String = "\(M.underlyingClass)"
-    func parse(responseData: Data?) -> (responseModel: M?, apiMessage: String?) {
+open class ApiRequest<M: Decodable> {
+    open var path: String { "" }
+    open var method: HttpMethod { .get }
+    open var parameters: ApiRequestParameters? { nil }
+    open var headers: [String : String]? { nil }
+    open var defaultMessage: String { "Oops, it seems something went wrong... please try again later." }
+    private(set) final lazy var mockupJsonFileName: String = "\(type(of: self))"
+    open func parse(responseData: Data?) -> (responseModel: M?, apiMessage: String?) {
         var message: String?
         if let responseData = responseData,
            let responseDictionary = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String : Any],
@@ -28,7 +28,7 @@ class ApiRequest<M: Decodable> {
     }
 }
 
-enum HttpMethod: String {
+public enum HttpMethod: String {
     case get = "GET"
     case put = "PUT"
     case post = "POST"
@@ -36,13 +36,13 @@ enum HttpMethod: String {
     case delete = "DELETE"
 }
 
-enum ApiRequestParameters {
+public enum ApiRequestParameters {
     case body(_: Encodable?)
     case url(parameters: [String: String]?)
 }
 
 extension Encodable {
-    func encode() -> Data? {
+    public func encode() -> Data? {
         let encoder = JSONEncoder()
         if let type = underlyingClass as? CustomCodable.Type {
             encoder.dateEncodingStrategy = type.dateEncodingStrategy
@@ -51,7 +51,7 @@ extension Encodable {
         return try? encoder.encode(self)
     }
     
-    var underlyingClass: Encodable.Type {
+    public var underlyingClass: Encodable.Type {
         var name = "\(type(of: self))"
         while name.starts(with: "Array<"), name.last == ">" {
             name = String(name.dropFirst(6).dropLast())
@@ -89,7 +89,7 @@ extension Encodable {
 }
 
 extension Decodable {
-    static var underlyingClass: Decodable.Type {
+    public static var underlyingClass: Decodable.Type {
         var name = "\(self)"
         var dummyJson: String?
         while name.starts(with: "Array<"), name.last == ">" {
@@ -124,7 +124,7 @@ extension Decodable {
             return self
         }
     }
-    static func getUnderlyingStructType(dummyJson: String) -> Decodable.Type? {
+    public static func getUnderlyingStructType(dummyJson: String) -> Decodable.Type? {
         guard let dummyJsonData = dummyJson.data(using: .utf8) else {
             return nil
         }
@@ -169,7 +169,7 @@ extension Decodable {
 }
 
 extension Data {
-    func decode<T: Decodable>() -> T? {
+    public func decode<T: Decodable>() -> T? {
         let decoder = JSONDecoder()
         if let type = T.underlyingClass as? CustomCodable.Type {
             decoder.dateDecodingStrategy = type.dateDecodingStrategy
@@ -179,7 +179,7 @@ extension Data {
     }
 }
 
-protocol CustomCodable: Codable {
+public protocol CustomCodable: Codable {
     static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy { get }
     static var dataEncodingStrategy: JSONEncoder.DataEncodingStrategy { get }
     static var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy { get }
@@ -194,7 +194,7 @@ extension CustomCodable {
 }
 
 extension DateFormatter {
-    convenience init(dateFormat: String, locale: Locale = .current) {
+    public convenience init(dateFormat: String, locale: Locale = .current) {
         self.init()
         self.dateFormat = dateFormat
         self.locale = locale

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         setWindowToEntryPoint()
         window?.makeKeyAndVisible()
+        UINavigationButton.shared.attemptToLaunch()
         return true
     }
     
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func setWindowToEntryPoint() {
+        window?.rootViewController?.dismiss(animated: false)
         window?.rootViewController = LandingView()
     }
     
@@ -37,12 +39,8 @@ extension AppDelegate {
         window?.rootViewController = menu
     }
     
-    func setWindowToSampleDynamicTableViewController() {
-        window?.rootViewController = SampleDynamicTableViewController()
-    }
-    
-    func setWindowToSampleDynamicCollectionViewController() {
-        window?.rootViewController = SampleDynamicCollectionViewController()
+    func setWindow<V: UIViewController>(to viewType: V.Type) {
+        window?.rootViewController = viewType.init()
     }
     
 }

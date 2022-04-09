@@ -32,10 +32,21 @@ class LandingView: BaseTableViewController<LandingItemCellModel, LandingItemCell
                 UIApplication.shared.appDelegate?.setWindowToDiscordMenu()
             }),
             LandingItemCellModel(text: "Dynamic UITableViewController", onTap: {
-                UIApplication.shared.appDelegate?.setWindowToSampleDynamicTableViewController()
+                UIApplication.shared.appDelegate?.setWindow(to: SampleDynamicTableViewController.self)
             }),
             LandingItemCellModel(text: "Dynamic UICollectionViewController", onTap: {
-                UIApplication.shared.appDelegate?.setWindowToSampleDynamicCollectionViewController()
+                UIApplication.shared.appDelegate?.setWindow(to: SampleDynamicCollectionViewController.self)
+            }),
+            LandingItemCellModel(text: "ApiRequestSampleViewController", onTap: {
+                UIApplication.shared.appDelegate?.setWindow(to: ApiRequestSampleViewController.self)
+            }),
+            LandingItemCellModel(text: "UUIDScannerViewController", onTap: {
+                if #available(iOS 13.0, *) {
+                    UIApplication.shared.appDelegate?.setWindow(to: UUIDScannerViewController.self)
+                } else {
+                    let alert = UIAlertController(title: "Feature only available on iOS 13.0 and above.", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                }
             })
         ])
     }
