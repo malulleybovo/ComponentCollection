@@ -22,26 +22,12 @@ open class UIDynamicTableViewController: UIViewController, UITableViewDelegate, 
     public var sections: [CollectionSectionDescriptor] = [] {
         didSet {
             for section in sections {
-                if let type = section.headerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
-                   !registeredSupplementaryViewIdentifiers.contains("\(type)") {
-                    tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
-                    registeredSupplementaryViewIdentifiers.insert("\(type)")
-                }
-                if let type = section.footerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
-                   !registeredSupplementaryViewIdentifiers.contains("\(type)") {
-                    tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
-                    registeredSupplementaryViewIdentifiers.insert("\(type)")
-                }
-                for item in section.items {
-                    let type = item.dynamicTableViewCellType
-                    if registeredCellIdentifiers.contains("\(type)") { continue }
-                    tableView.register(type, forCellReuseIdentifier: "\(type)")
-                    registeredCellIdentifiers.insert("\(type)")
-                }
-                section.onChange = { [weak self] in
+                registerSectionIfNeeded(section)
+                section.onChange = { [weak self] sender in
                     guard let self = self else { return }
                     switch self.reloadScheme {
                     case .automatic:
+                        self.registerSectionIfNeeded(sender)
                         self.tableView.reloadData()
                     case .manual:
                         break
@@ -54,6 +40,24 @@ open class UIDynamicTableViewController: UIViewController, UITableViewDelegate, 
             case .manual:
                 break
             }
+        }
+    }
+    private func registerSectionIfNeeded(_ section: CollectionSectionDescriptor) {
+        if let type = section.headerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
+           !registeredSupplementaryViewIdentifiers.contains("\(type)") {
+            tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
+            registeredSupplementaryViewIdentifiers.insert("\(type)")
+        }
+        if let type = section.footerViewDescriptor?.dynamicTableViewHeaderFooterViewType,
+           !registeredSupplementaryViewIdentifiers.contains("\(type)") {
+            tableView.register(type, forHeaderFooterViewReuseIdentifier: "\(type)")
+            registeredSupplementaryViewIdentifiers.insert("\(type)")
+        }
+        for item in section.items {
+            let type = item.dynamicTableViewCellType
+            if registeredCellIdentifiers.contains("\(type)") { continue }
+            tableView.register(type, forCellReuseIdentifier: "\(type)")
+            registeredCellIdentifiers.insert("\(type)")
         }
     }
     
@@ -567,10 +571,10 @@ open class UIViewDescriptor<V: UIView>: Descriptor, Identifiable {
 }
 
 public class CollectionSectionDescriptor {
-    public var headerViewDescriptor: Descriptor? { didSet { onChange?() } }
-    public var footerViewDescriptor: Descriptor? { didSet { onChange?() } }
-    public var items: [Descriptor] { didSet { onChange?() } }
-    public var onChange: (() -> Void)?
+    public var headerViewDescriptor: Descriptor? { didSet { onChange?(self) } }
+    public var footerViewDescriptor: Descriptor? { didSet { onChange?(self) } }
+    public var items: [Descriptor] { didSet { onChange?(self) } }
+    public var onChange: ((_ sender: CollectionSectionDescriptor) -> Void)?
     public init(header: Descriptor? = nil, items: Descriptor..., footer: Descriptor? = nil) {
         self.headerViewDescriptor = header
         self.footerViewDescriptor = footer

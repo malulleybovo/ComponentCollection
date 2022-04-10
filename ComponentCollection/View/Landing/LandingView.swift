@@ -47,7 +47,10 @@ class LandingView: BaseTableViewController<LandingItemCellModel, LandingItemCell
                     let alert = UIAlertController(title: "Feature only available on iOS 13.0 and above.", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 }
-            })
+            }),
+            LandingItemCellModel(text: "UITappableLinkViewController", onTap: {
+                UIApplication.shared.appDelegate?.setWindow(to: UITappableLabelViewController.self)
+            }),
         ])
     }
     

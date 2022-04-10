@@ -25,26 +25,12 @@ public class UIDynamicCollectionViewController: UIViewController, UICollectionVi
     public var sections: [CollectionSectionDescriptor] = [] {
         didSet {
             for section in sections {
-                if let type = section.headerViewDescriptor?.dynamicCollectionViewCellType,
-                   !registeredHeaderViewIdentifiers.contains("\(type)") {
-                    collectionView.register(type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(type)")
-                    registeredHeaderViewIdentifiers.insert("\(type)")
-                }
-                if let type = section.footerViewDescriptor?.dynamicCollectionViewCellType,
-                   !registeredFooterViewIdentifiers.contains("\(type)") {
-                    collectionView.register(type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "\(type)")
-                    registeredFooterViewIdentifiers.insert("\(type)")
-                }
-                for item in section.items {
-                    let type = item.dynamicCollectionViewCellType
-                    if registeredCellIdentifiers.contains("\(type)") { continue }
-                    collectionView.register(type, forCellWithReuseIdentifier: "\(type)")
-                    registeredCellIdentifiers.insert("\(type)")
-                }
-                section.onChange = { [weak self] in
+                registerSectionIfNeeded(section)
+                section.onChange = { [weak self] sender in
                     guard let self = self else { return }
                     switch self.reloadScheme {
                     case .automatic:
+                        self.registerSectionIfNeeded(sender)
                         self.collectionView.reloadData()
                     case .manual:
                         break
@@ -57,6 +43,24 @@ public class UIDynamicCollectionViewController: UIViewController, UICollectionVi
             case .manual:
                 break
             }
+        }
+    }
+    private func registerSectionIfNeeded(_ section: CollectionSectionDescriptor) {
+        if let type = section.headerViewDescriptor?.dynamicCollectionViewCellType,
+           !registeredHeaderViewIdentifiers.contains("\(type)") {
+            collectionView.register(type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(type)")
+            registeredHeaderViewIdentifiers.insert("\(type)")
+        }
+        if let type = section.footerViewDescriptor?.dynamicCollectionViewCellType,
+           !registeredFooterViewIdentifiers.contains("\(type)") {
+            collectionView.register(type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "\(type)")
+            registeredFooterViewIdentifiers.insert("\(type)")
+        }
+        for item in section.items {
+            let type = item.dynamicCollectionViewCellType
+            if registeredCellIdentifiers.contains("\(type)") { continue }
+            collectionView.register(type, forCellWithReuseIdentifier: "\(type)")
+            registeredCellIdentifiers.insert("\(type)")
         }
     }
     

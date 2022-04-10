@@ -12,9 +12,25 @@ networkLayer.execute(request: SomeRequest()) { statusCode, responseModel, messag
 ```
 
 #### UI Components
+- UITappableLabel: Label allowing portions of text in mid paragraph to be tapped for more functionality
+```swift
+let label = UITappableLabel()
+label.numberOfLines = 0
+let text = NSMutableAttributedString()
+text.append(NSAttributedString(string: "Some static text followed by "))
+text.append(NSAttributedString(string: "some link", attributes: [
+    .foregroundColor: UIColor.systemBlue,
+    .onTap: {
+        // Does something when tapped
+    }
+]))
+text.append(NSAttributedString(string: " and that is it."))
+text.attributedText = a
+```
 - VNDocumentCameraScan+Extension: Helper functions to extract text from scanned documents using camera 
 ```swift
-func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+func documentCameraViewController(_ controller: VNDocumentCameraViewController, 
+                                  didFinishWith scan: VNDocumentCameraScan) {
     // Scans document for text
     scan.fullText { scannedText in
         // Uses the scanned text

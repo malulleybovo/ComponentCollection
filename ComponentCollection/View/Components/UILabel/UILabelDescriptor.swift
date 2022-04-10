@@ -7,15 +7,15 @@
 
 import UIKit
 
-class UILabelDescriptor: UIViewDescriptor<UILabel> {
+open class UILabelDescriptor: UIViewDescriptor<UILabel> {
     
-    var text: String?
-    var attributedText: NSAttributedString?
-    var font: UIFont
-    var textColor: UIColor?
-    var numberOfLines: Int
+    public var text: String?
+    public var attributedText: NSAttributedString?
+    public var font: UIFont
+    public var textColor: UIColor?
+    public var numberOfLines: Int
     
-    init(text: String?, font: UIFont = .systemFont(ofSize: UIFont.systemFontSize), textColor: UIColor? = nil, numberOfLines: Int = 0) {
+    public init(text: String?, font: UIFont = .systemFont(ofSize: UIFont.systemFontSize), textColor: UIColor? = nil, numberOfLines: Int = 0) {
         self.text = text
         self.font = font
         self.textColor = textColor
@@ -23,7 +23,7 @@ class UILabelDescriptor: UIViewDescriptor<UILabel> {
         super.init()
     }
     
-    init(attributedText: NSAttributedString?, font: UIFont = .systemFont(ofSize: UIFont.systemFontSize), textColor: UIColor? = nil, numberOfLines: Int = 0) {
+    public init(attributedText: NSAttributedString?, font: UIFont = .systemFont(ofSize: UIFont.systemFontSize), textColor: UIColor? = nil, numberOfLines: Int = 0) {
         self.attributedText = attributedText
         self.font = font
         self.textColor = textColor
@@ -31,7 +31,7 @@ class UILabelDescriptor: UIViewDescriptor<UILabel> {
         super.init()
     }
     
-    override func layout(view: UILabel) {
+    public override func layout(view: UILabel) {
         view.font = font
         view.numberOfLines = numberOfLines
         view.textColor = textColor

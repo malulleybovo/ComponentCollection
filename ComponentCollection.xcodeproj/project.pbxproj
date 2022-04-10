@@ -21,6 +21,8 @@
 		8EE005A1280217990042C386 /* UUIDScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE005A0280217990042C386 /* UUIDScannerViewController.swift */; };
 		8EE005A42802197F0042C386 /* ApiRequestSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE005A32802197F0042C386 /* ApiRequestSampleViewController.swift */; };
 		8EE005A62802273B0042C386 /* UINavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE005A52802273B0042C386 /* UINavigationButton.swift */; };
+		8EE005A928023AE30042C386 /* UITappableLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE005A828023AE30042C386 /* UITappableLabelViewController.swift */; };
+		8EE005AC28027E360042C386 /* UITappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE005AB28027E360042C386 /* UITappableLabel.swift */; };
 		8EE29D4727A759C800DA93E9 /* DiscordMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */; };
 		8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */; };
 		8EE29D5027A769CE00DA93E9 /* LandingItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */; };
@@ -73,6 +75,8 @@
 		8EE005A0280217990042C386 /* UUIDScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDScannerViewController.swift; sourceTree = "<group>"; };
 		8EE005A32802197F0042C386 /* ApiRequestSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestSampleViewController.swift; sourceTree = "<group>"; };
 		8EE005A52802273B0042C386 /* UINavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationButton.swift; sourceTree = "<group>"; };
+		8EE005A828023AE30042C386 /* UITappableLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITappableLabelViewController.swift; sourceTree = "<group>"; };
+		8EE005AB28027E360042C386 /* UITappableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITappableLabel.swift; sourceTree = "<group>"; };
 		8EE29D4627A759C800DA93E9 /* DiscordMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordMenuUITests.swift; sourceTree = "<group>"; };
 		8EE29D4C27A7694300DA93E9 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		8EE29D4F27A769CE00DA93E9 /* LandingItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingItemCell.swift; sourceTree = "<group>"; };
@@ -193,6 +197,22 @@
 			path = ApiRequestSampleViewController;
 			sourceTree = "<group>";
 		};
+		8EE005A728023AC20042C386 /* UITappableLabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8EE005A828023AE30042C386 /* UITappableLabelViewController.swift */,
+			);
+			path = UITappableLabelViewController;
+			sourceTree = "<group>";
+		};
+		8EE005AA28027E2C0042C386 /* UITappableLabel */ = {
+			isa = PBXGroup;
+			children = (
+				8EE005AB28027E360042C386 /* UITappableLabel.swift */,
+			);
+			path = UITappableLabel;
+			sourceTree = "<group>";
+		};
 		8EECFB8027A645580085B9EC = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +275,7 @@
 				8E61FE3C27F2A42700310FDA /* DynamicCollectionView */,
 				8EE0059F2802176B0042C386 /* UUIDScannerViewController */,
 				8EE005A2280219650042C386 /* ApiRequestSampleViewController */,
+				8EE005A728023AC20042C386 /* UITappableLabelViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +285,7 @@
 			children = (
 				8EECFBC827A673230085B9EC /* Menu */,
 				8E2CAD2427F15E2E0028C9C0 /* UILabel */,
+				8EE005AA28027E2C0042C386 /* UITappableLabel */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -458,9 +480,11 @@
 				8E28D7FE27DDEDC90019C5F7 /* NetworkLayer.swift in Sources */,
 				8EECFBC027A645E30085B9EC /* LandingView.swift in Sources */,
 				8E2CAD2227F15AF50028C9C0 /* UIDynamicTableViewController.swift in Sources */,
+				8EE005AC28027E360042C386 /* UITappableLabel.swift in Sources */,
 				8EE005A62802273B0042C386 /* UINavigationButton.swift in Sources */,
 				8EECFBCC27A675F00085B9EC /* DiscordChatView.swift in Sources */,
 				8EE29D5327A76ABC00DA93E9 /* LandingItemCellModel.swift in Sources */,
+				8EE005A928023AE30042C386 /* UITappableLabelViewController.swift in Sources */,
 				8EE29D4D27A7694300DA93E9 /* BaseTableViewController.swift in Sources */,
 				8EECFB8D27A645580085B9EC /* AppDelegate.swift in Sources */,
 				8EECFBCA27A6733B0085B9EC /* DiscordLeftMenuView.swift in Sources */,
